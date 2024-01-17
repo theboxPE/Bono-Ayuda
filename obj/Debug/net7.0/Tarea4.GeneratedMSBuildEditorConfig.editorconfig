@@ -1,0 +1,67 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Tarea4
+build_property.RootNamespace = Tarea4
+build_property.ProjectDir = C:\Users\perez\Documents\Gabriel\cuatri 6\programacion web\Tarea 3-4\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\Users\perez\Documents\Gabriel\cuatri 6\programacion web\Tarea 3-4
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/Users/perez/Documents/Gabriel/cuatri 6/programacion web/Tarea 3-4/App.razor]
+build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/perez/Documents/Gabriel/cuatri 6/programacion web/Tarea 3-4/Pages/Admin/Admin.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQWRtaW4ucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/perez/Documents/Gabriel/cuatri 6/programacion web/Tarea 3-4/Pages/Admin/Detalle.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cRGV0YWxsZS5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/perez/Documents/Gabriel/cuatri 6/programacion web/Tarea 3-4/Pages/Index.razor]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/perez/Documents/Gabriel/cuatri 6/programacion web/Tarea 3-4/Shared/PersonaEdit.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFBlcnNvbmFFZGl0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/perez/Documents/Gabriel/cuatri 6/programacion web/Tarea 3-4/Shared/SimpleLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFNpbXBsZUxheW91dC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/perez/Documents/Gabriel/cuatri 6/programacion web/Tarea 3-4/Shared/SurveyPrompt.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/perez/Documents/Gabriel/cuatri 6/programacion web/Tarea 3-4/_Imports.razor]
+build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/perez/Documents/Gabriel/cuatri 6/programacion web/Tarea 3-4/Shared/MainLayout.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-ousqnf7c0g
+
+[C:/Users/perez/Documents/Gabriel/cuatri 6/programacion web/Tarea 3-4/Shared/NavMenu.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE5hdk1lbnUucmF6b3I=
+build_metadata.AdditionalFiles.CssScope = b-4ql8w9iajl
+
+[C:/Users/perez/Documents/Gabriel/cuatri 6/programacion web/Tarea 3-4/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/perez/Documents/Gabriel/cuatri 6/programacion web/Tarea 3-4/Pages/_Host.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX0hvc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 

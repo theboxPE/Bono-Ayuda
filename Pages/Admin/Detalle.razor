@@ -1,0 +1,51 @@
+@page "/admin/{Id}"
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Detalles de la Aplicacion</h3>
+                </div>
+
+                <div class="card-body">
+                    <p><strong>Nombre:</strong>@aplicacion.persona.nombre</p>
+                    <p><strong>Apellido:</strong>@aplicacion.persona.apellido</p>
+                    <p><strong>Motivo:</strong>@aplicacion.motivo</p>
+                    <h4>Amigos</h4>
+                    <ul>
+                        @foreach(var amigo in aplicacion.amigos.Where(x => x.nombre.Length > 2))
+                        {
+                            <li>@amigo.nombre</li>
+                        }
+                    </ul>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+@code{
+    [Parameter]
+    public string Id {get; set;} = "No hay id";
+
+    Aplicacion aplicacion = new Aplicacion();
+
+        protected override void OnInitialized()
+        {
+            //verificar archivo existente
+
+            if(Directory.Exists("datax"))
+            {
+                if(File.Exists("datax/" + Id + ".json"))
+                {
+                    string json = File.ReadAllText("datax/" + Id + ".json");
+                    aplicacion = Newtonsoft.Json.JsonConvert.DeserializeObject<Aplicacion>(json)!;
+                }
+            }
+        }
+}
+

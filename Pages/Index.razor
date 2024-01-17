@@ -1,0 +1,132 @@
+﻿@page "/"
+@layout SimpleLayout
+@inject IJSRuntime Jsx
+@inject NavigationManager Nav
+
+
+<PageTitle>Programa de bono ayuda</PageTitle>
+
+<h3>Llena el formulario de bono ayuda</h3>
+<br>
+
+
+<EditForm Model="intento" OnValidSubmit="EnviarDatos">
+    <DataAnnotationsValidator/>
+    <ValidationSummary/>
+
+    <div class="row">
+        <div>
+            <PersonaEdit Modelo="intento.persona"></PersonaEdit>
+        </div>
+
+    </div>
+
+
+      
+    
+        <div class="text-center">
+
+            @if(errores.Count > 0){
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach(var error in errores)
+                        {
+                            <li>@error</li>
+                        }
+                    </ul>
+                </div>
+            }
+
+        </div>
+   
+    
+    <div style="height: 200px;">
+
+    </div>
+
+    
+
+</EditForm>
+
+@code{
+    Aplicacion intento = new Aplicacion();
+
+    List<string> errores = new List<string>();
+
+    protected override void OnInitialized()
+    {
+        intento.persona = new Persona();
+
+        for(int x = 0; x < 5; x++){
+            intento.amigos.Add(new Persona());
+        }
+    }
+
+    void EnviarDatos(){
+
+        errores.Clear();
+
+       if(intento.persona.nombre.Length < 3){
+            errores.Add("Debe tener un nombre valido");
+        }
+
+        if(intento.correo.Length < 3){
+            errores.Add("Debe tener un correo valido");
+        }
+
+        if(intento.direccion.Length < 3){
+            errores.Add("Debe tener una dirrecion valida");
+        }
+
+        if(intento.estadoCivil.Length < 3){
+            errores.Add("Debe tener un estado civil valido");
+        }
+
+        if(intento.profesion.Length < 3){
+            errores.Add("Debe tener una profesion valida");
+        }
+
+        if(intento.motivo.Length < 3){
+            errores.Add("Debe tener un motivo valido");
+        }
+
+        //validar amigos existentes
+        int amigosValidos = 0;
+        foreach(var amigo in intento.amigos)
+        {
+            if(amigo.nombre.Length > 2)
+            {
+                amigosValidos++;
+            } 
+        }
+
+        if(amigosValidos < 2)
+        {
+            errores.Add("Debe tener al menos 2 amigos");
+        }
+
+        if(errores.Count > 0){
+            return;
+        }
+
+        intento.Id = Guid.NewGuid().ToString();
+        var datos = Newtonsoft.Json.JsonConvert.SerializeObject(intento);
+
+        Console.WriteLine("Se envio el formulario");
+        Console.WriteLine(datos);
+
+        //verificar carpeta existente
+        if(!Directory.Exists("datax"))
+        {
+            Directory.CreateDirectory("datax");
+        }
+
+        //guardar el archivo
+        File.WriteAllText($"datax/{intento.Id}.json", datos);
+        
+        Jsx.InvokeVoidAsync("alert", "Se envio el formulario");
+
+        //force to reload
+        Nav.NavigateTo("/", true);
+    }
+}

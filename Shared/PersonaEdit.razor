@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <label for="cedula">Cédula</label>
+            <div class="input-group">
+                <input id="cedula" type="text" class="form-control" @bind="Modelo.cedula">
+                <button class="btn btn-primary" @onclick="validar">Validar</button>
+            </div>
+            @if (!string.IsNullOrEmpty(mensajeErrorCedula))
+            {
+                <div class="alert alert-danger" role="alert">
+                    @mensajeErrorCedula
+                </div>
+            }
+        </div>
+
+        <div class="col-md-3">
+            <label for="nombre">Nombre</label>
+            <input id="nombre" type="text" class="form-control" @bind="Modelo.nombre">
+        </div>
+
+        <div class="col-md-3">
+            <label for="apellido">Apellido</label>
+            <input id="apellido" type="text" class="form-control" @bind="Modelo.apellido">
+        </div>
+
+        <div class="col-md-3">
+            <label for="telefono">Teléfono</label>
+            <input id="telefono" type="text" class="form-control" @bind="Modelo.telefono">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@code{
+    string mensajeErrorCedula = "";
+
+    async Task validar(){
+
+        mensajeErrorCedula = "";
+
+        if(Modelo.cedula.Length != 11){
+            mensajeErrorCedula = "La cedula debe tener 11 digitos acutalmente tiene " + Modelo.cedula.Length;
+            return;
+        }
+
+        var url = "https://api.adamix.net/apec/cedula/" + Modelo.cedula;
+
+        var http = new HttpClient();
+
+        var respuesta = await http.GetAsync(url);
+
+        var json = await respuesta.Content.ReadAsStringAsync();
+        var persona = Newtonsoft.Json.JsonConvert.DeserializeObject<PersonaJce>(json);
+        if(persona!.ok){
+            Modelo.nombre = persona.Nombres;
+            Modelo.apellido = persona.Apellido1 + " " + persona.Apellido2;
+
+            //upgrade
+            StateHasChanged();
+
+        }else{
+            mensajeErrorCedula = "La cedula no fue encontrada en el padron";
+        }  
+        
+    }
+     
+
+
+    [Parameter]
+    public Persona Modelo {get; set;} = new Persona();
+}
